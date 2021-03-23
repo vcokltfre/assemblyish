@@ -23,10 +23,18 @@ SOFTWARE.
 """
 
 
-class LexingError(Exception):
+class AssemblyishError(Exception):
     def __init__(self, line: int, index: int, msg: str, *args):
         super().__init__(f"Line: {line}, Index: {index} :: {msg}", *args)
 
 
+class LexingError(AssemblyishError):
+    pass
+
+
 class UnexpectToken(LexingError):
+    pass
+
+
+class CompilationError(AssemblyishError):
     pass
