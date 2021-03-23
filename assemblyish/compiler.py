@@ -173,7 +173,10 @@ class Compiler:
 
     def save(self, filename: str):
         with open(filename, "wb") as f:
-            f.write(bytes(self.compile()))
+            self.save_to_file(f)
+
+    def save_to_file(self, writable):
+        writable.write(bytes(self.compile()))
 
     def getlines(self) -> List[List[Token]]:
         lines = []
