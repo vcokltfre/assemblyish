@@ -72,6 +72,9 @@ class Parser:
         if len(code) == 0:
             raise LexingError(0, 0, "No code input given.")
 
+        if code[-1] != "\n":
+            raise LexingError(0, 0, "Code must end with a newline.")
+
     def parse(self, include_extra: bool = False, debug: bool = False):
         symbols = [Token("START", 0, 0)]
 
