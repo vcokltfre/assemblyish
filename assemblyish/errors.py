@@ -25,7 +25,7 @@ SOFTWARE.
 
 class AssemblyishError(Exception):
     def __init__(self, line: int, index: int, msg: str, *args):
-        super().__init__(f"Line: {line}, Index: {index} :: {msg}", *args)
+        super().__init__(f"Line: {line + 1}, Index: {index} :: {msg}", *args)
 
 
 class LexingError(AssemblyishError):
