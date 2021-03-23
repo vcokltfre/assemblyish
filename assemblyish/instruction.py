@@ -39,16 +39,19 @@ class Instruction:
 
 
 instructions = {
-    "ADD": Instruction(0b00000001, Argument("NUM", "IDT"), Argument("NUM", "IDT", required=False)),
-    "SUB": Instruction(0b00000010, Argument("NUM", "IDT"), Argument("NUM", "IDT", required=False)),
-    "MUL": Instruction(0b00000011, Argument("NUM", "IDT"), Argument("NUM", "IDT", required=False)),
-    "DIV": Instruction(0b00000100, Argument("NUM", "IDT"), Argument("NUM", "IDT", required=False)),
-    "POW": Instruction(0b00000101, Argument("NUM", "IDT"), Argument("NUM", "IDT", required=False)),
+    "ADD":  Instruction(1, Argument("NUM", "IDT"), Argument("NUM", "IDT", required=False)),
+    "SUB":  Instruction(2, Argument("NUM", "IDT"), Argument("NUM", "IDT", required=False)),
+    "MUL":  Instruction(3, Argument("NUM", "IDT"), Argument("NUM", "IDT", required=False)),
+    "DIV":  Instruction(4, Argument("NUM", "IDT"), Argument("NUM", "IDT", required=False)),
+    "POW":  Instruction(5, Argument("NUM", "IDT"), Argument("NUM", "IDT", required=False)),
+    "MOD":  Instruction(6, Argument("NUM", "IDT"), Argument("NUM", "IDT", required=False)),
+    "RAN":  Instruction(7, Argument("NUM", "IDT"), Argument("NUM", "IDT", required=False)),
 
-    "STO": Instruction(0b00000101, Argument("IDT"), Argument("NUM", "STR", "IDT", required=False)),
+    "STO":  Instruction(65, Argument("IDT"), Argument("NUM", "STR", "IDT", required=False)),
+    "LOD":  Instruction(66, Argument("IDT"), Argument("NUM", "STR", "IDT", required=False)),
 
-    "OUT": Instruction(0b01000001, Argument("NUM", "IDT", required=False)),
-    "OUTS": Instruction(0b01000001, Argument("STR", "IDT", required=False)),
+    "OUT":  Instruction(129, Argument("NUM", "IDT", required=False)),
+    "OUTS": Instruction(130, Argument("STR", "IDT", required=False)),
 }
 
 GOTO = Instruction(0b11111001, Argument("IDT"))
