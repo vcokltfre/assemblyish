@@ -102,6 +102,12 @@ class Parser:
             return self.process_regex(Token.comment, "COM")
         elif char == "\"":
             return self.process_regex(Token.string, "STR")
+        elif char == ".":
+            self.index += 1
+            return Token("VAR", self.line, self.index)
+        elif char == ":":
+            self.index += 1
+            return Token("GOTO", self.line, self.index)
         elif char.isspace():
             return self.process_whitespace()
         else:
