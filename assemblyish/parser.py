@@ -117,7 +117,7 @@ class Parser:
         i = Token.identifier.search(self.code, pos=self.index)
         self.index = i.end()
         name = i.group()
-        return Token("IDT", self.line, self.index, name)
+        return Token("IDT", self.line, self.index, name.upper())
 
     def process_regex(self, regex, ltype: str) -> Token:
         """Get one regex based token."""
