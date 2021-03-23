@@ -88,6 +88,12 @@ class Parser:
         if not include_extra:
             symbols = [symbol for symbol in symbols if symbol.type not in ["START", "EOF", "COM"]]
 
+        out = []
+        for symbol in symbols:
+            if symbol.type == "STR":
+                symbol.value = symbol.value[1:-1]
+            out.append(symbol)
+
         return symbols
 
     def next(self):
